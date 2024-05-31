@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    sentinel:
+      # 是否启用 Sentinel 自动配置：properties 和 SentinelResourceAspect；web 、 webflux 适配。默认 true
+      # TODO 如果禁用，web 资源不会生效。 其他注解资源应该也不会生效（除非手动配置 SentinelResourceAspect）
+      enabled: true
+      filter:
+        # 启用 sentinel 的前提下，是否启用 web 适配。默认 true
+        # TODO 禁用时，web 请求不会被 sentinel filter 拦截，也不会被流控。没有 web resource
+        enabled: true
+        # 配置 sentinel filter 的 url-pattern，默认 /**，即所有请求都会被 sentinel filter 拦截
+        # TODO 不匹配的请求不会被流控，即使设置了 sentinel 限流规则
+        url-patterns: /kotlin/**
+      # TODO 配置 sentinel web 请求资源名是否加 http method 前缀，默认 false
+      http-method-specify: true
+      transport:
+        dashboard: localhost:8070
+        port: 8719
