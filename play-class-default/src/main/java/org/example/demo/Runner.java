@@ -70,6 +70,10 @@ public class Runner implements CommandLineRunner {
     private final JavaHandlersKotlinDemo javaHandlersKotlinDemo;
     private final KotlinHandlersJavaDemo kotlinHandlersJavaDemo;
     private final KotlinHandlersKotlinDemo kotlinHandlersKotlinDemo;
+    private final JavaParentCAJavaDemo javaParentCAJavaDemo;
+    private final JavaParentCAKotlinDemo javaParentCAKotlinDemo;
+    private final KotlinParentCAJavaDemo kotlinParentCAJavaDemo;
+    private final KotlinParentCAKotlinDemo kotlinParentCAKotlinDemo;
 
     @Override
     public void run(String... args) {
@@ -114,6 +118,10 @@ public class Runner implements CommandLineRunner {
             expectFallback(kotlinParentSNKotlinDemo::greeting);
             expectFallback(kotlinParentSOJavaDemo::greeting);
             expectFallback(kotlinParentSOKotlinDemo::greeting);
+            expectFallback(javaParentCAJavaDemo::greeting);
+            expectFallback(javaParentCAKotlinDemo::greeting);
+            expectFallback(kotlinParentCAJavaDemo::greeting);
+            expectFallback(kotlinParentCAKotlinDemo::greeting);
         }
         {
             expectNoFallbackTakeEffect(javaAnnotatedInterfaceJavaDemo::greeting);
