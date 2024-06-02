@@ -10,7 +10,7 @@ import org.example.demo.biz.Greeting.doGreeting
  * Aspect takes effect, fallback takes effect.
  */
 open class AUPKotlinParentForKotlin {
-    @SentinelResource(value = "demo", fallback = "fallback") // TODO 这里没有解析到来自子类的 fallback
+    @SentinelResource(value = "demo", fallback = "fallback") // TODO 成功解析到子类方法，但检查有问题：未找到方法
     open fun greeting(name: String?): String {
         return doGreeting(name)
     }
