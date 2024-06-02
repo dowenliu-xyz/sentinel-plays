@@ -19,7 +19,7 @@ public class JavaFSSHHandlerJavaDemo implements Demo {
         doFallback(str);
     }
 
-    @SentinelResource(fallback = "fallback", fallbackClass = JavaFSSHHandlerForJava.class)  // TODO 没有提示修改 visibility
+    @SentinelResource(fallback = "fallback", fallbackClass = JavaFSSHHandlerForJava.class)
     @Override
     public void consumeInteger(@Nullable Integer integer) {
         doConsumeInteger(integer);

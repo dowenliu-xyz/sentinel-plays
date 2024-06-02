@@ -2,6 +2,7 @@ package org.example.demo.demos.basic;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import static org.example.demo.biz.Greeting.doFallback;
 import static org.example.demo.biz.Greeting.doGreeting;

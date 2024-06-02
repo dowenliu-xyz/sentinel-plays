@@ -19,7 +19,7 @@ class JavaFSSHHandlerKotlinDemo : Demo {
     @SentinelResource(
         fallback = "fallback",
         fallbackClass = [JavaFSSHHandlerForKotlin::class]
-    ) // TODO 没有提示修改 visibility
+    )
     override fun consumeInteger(integer: Int?) {
         Biz.doConsumeInteger(integer)
     }

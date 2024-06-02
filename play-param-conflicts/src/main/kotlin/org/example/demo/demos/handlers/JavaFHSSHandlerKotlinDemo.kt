@@ -10,12 +10,12 @@ class JavaFHSSHandlerKotlinDemo : Demo {
     @SentinelResource(
         fallback = "fallback",
         fallbackClass = [JavaFHSSHandlerForKotlin::class]
-    ) // TODO 没有提示修改 visibility
+    )
     override fun consumeString(str: String?) {
         Biz.doConsumeString(str)
     }
 
-    @SentinelResource(fallback = "fallback") // TODO 没有提示创建方法
+    @SentinelResource(fallback = "fallback")
     override fun consumeInteger(integer: Int?) {
         Biz.doConsumeInteger(integer)
     }

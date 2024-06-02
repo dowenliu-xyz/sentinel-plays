@@ -10,13 +10,13 @@ import static org.example.demo.biz.Biz.doConsumeString;
 
 @Component
 public class JavaFHSHHandlerJavaDemo implements Demo {
-    @SentinelResource(fallback = "fallback", fallbackClass = JavaFHSHHandlerForJava.class) // TODO 没有提示修改 visibility
+    @SentinelResource(fallback = "fallback", fallbackClass = JavaFHSHHandlerForJava.class) // TODO 重命名 quickfix 没有改本地引用值
     @Override
     public void consumeString(@Nullable String str) {
         doConsumeString(str);
     }
 
-    @SentinelResource(fallback = "fallback", fallbackClass = JavaFHSHHandlerForJava.class) // TODO 没有提示修改 visibility
+    @SentinelResource(fallback = "fallback", fallbackClass = JavaFHSHHandlerForJava.class) // TODO 重命名 quickfix 没有改本地引用值
     @Override
     public void consumeInteger(@Nullable Integer integer) {
         doConsumeInteger(integer);

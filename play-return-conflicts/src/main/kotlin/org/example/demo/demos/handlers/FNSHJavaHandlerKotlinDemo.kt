@@ -15,7 +15,7 @@ class FNSHJavaHandlerKotlinDemo : Demo {
     @SentinelResource(
         fallback = "fallback",
         fallbackClass = [FNSHJavaHandlerForKotlin::class]
-    ) // TODO 没有提示修改 visibility
+    )
     override fun second(): Int {
         return Biz.doSecond()
     }

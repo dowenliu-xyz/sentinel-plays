@@ -10,7 +10,7 @@ class JavaHandlerKotlinDemo {
         value = "demo",
         fallback = "fallback",
         fallbackClass = [JavaHandlerForKotlin::class]
-    ) // TODO 没有提示修正 visibility
+    )
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

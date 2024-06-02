@@ -10,7 +10,7 @@ class FHSNJavaHandlerKotlinDemo : Demo {
     @SentinelResource(
         fallback = "fallback",
         fallbackClass = [FHSNJavaHandlerForKotlin::class]
-    ) // TODO 没有提示修改 visibility
+    )
     override fun first(): String {
         return Biz.doFirst()
     }

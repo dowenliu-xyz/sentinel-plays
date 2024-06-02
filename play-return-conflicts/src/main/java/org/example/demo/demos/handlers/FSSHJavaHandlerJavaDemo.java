@@ -18,7 +18,7 @@ public class FSSHJavaHandlerJavaDemo implements Demo {
         return doFirstFallback();
     }
 
-    @SentinelResource(fallback = "fallback", fallbackClass = FSSHJavaHandlerForJava.class) // TODO 没有提示修改 visibility
+    @SentinelResource(fallback = "fallback", fallbackClass = FSSHJavaHandlerForJava.class)
     @Override
     public Integer second() {
         return doSecond();

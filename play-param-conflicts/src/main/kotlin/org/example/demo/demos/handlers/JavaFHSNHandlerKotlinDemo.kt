@@ -10,7 +10,7 @@ class JavaFHSNHandlerKotlinDemo : Demo {
     @SentinelResource(
         fallback = "fallback",
         fallbackClass = [JavaFHSNHandlerForKotlin::class]
-    ) // TODO 没有提示修改 visibility
+    )
     override fun consumeString(str: String?) {
         Biz.doConsumeString(str)
     }

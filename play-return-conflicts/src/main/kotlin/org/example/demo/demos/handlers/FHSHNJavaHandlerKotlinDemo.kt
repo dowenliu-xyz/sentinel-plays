@@ -5,15 +5,14 @@ import org.example.demo.biz.Biz
 import org.example.demo.biz.Demo
 import org.springframework.stereotype.Component
 
-// TODO 没有提示冲突
 @Component
 class FHSHNJavaHandlerKotlinDemo : Demo {
-    @SentinelResource(fallback = "fallback", fallbackClass = [FHSHNJavaHandlerForKotlin::class]) // TODO 没有提示修改 visibility
+    @SentinelResource(fallback = "fallback", fallbackClass = [FHSHNJavaHandlerForKotlin::class])
     override fun first(): String {
         return Biz.doFirst()
     }
 
-    @SentinelResource(fallback = "fallback", fallbackClass = [FHSHNJavaHandlerForKotlin::class]) // TODO 没有提示找不到方法
+    @SentinelResource(fallback = "fallback", fallbackClass = [FHSHNJavaHandlerForKotlin::class])
     override fun second(): Int {
         return Biz.doSecond()
     }

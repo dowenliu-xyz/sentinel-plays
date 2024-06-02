@@ -10,12 +10,12 @@ class FHSSJavaHandlerKotlinDemo : Demo {
     @SentinelResource(
         fallback = "fallback",
         fallbackClass = [FHSSJavaHandlerForKotlin::class]
-    ) // TODO 没有提示修改 visibility
+    )
     override fun first(): String {
         return Biz.doFirst()
     }
 
-    @SentinelResource(fallback = "fallback") // TODO 没的提示创建方法
+    @SentinelResource(fallback = "fallback")
     override fun second(): Int {
         return Biz.doSecond()
     }

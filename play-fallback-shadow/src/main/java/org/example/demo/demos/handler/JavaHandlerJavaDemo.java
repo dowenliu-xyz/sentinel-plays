@@ -7,7 +7,7 @@ import static org.example.demo.biz.Greeting.doGreeting;
 
 @Component
 public class JavaHandlerJavaDemo {
-    @SentinelResource(value = "demo", fallback = "fallback", fallbackClass = JavaHandlerForJava.class) // TODO 没有提示修正 visibility
+    @SentinelResource(value = "demo", fallback = "fallback", fallbackClass = JavaHandlerForJava.class)
     public String greeting(String name) {
         return doGreeting(name);
     }

@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j
 import org.example.demo.biz.Greeting.doFallback
 import org.example.demo.biz.Greeting.doGreeting
 import org.slf4j.LoggerFactory
+import org.springframework.stereotype.Component
 
 /**
  * case: annotation-base bean (final class); annotation on method; fallback in current class

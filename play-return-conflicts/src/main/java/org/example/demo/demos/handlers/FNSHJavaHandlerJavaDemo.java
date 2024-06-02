@@ -15,7 +15,7 @@ public class FNSHJavaHandlerJavaDemo implements Demo {
         return doFirst();
     }
 
-    @SentinelResource(fallback = "fallback", fallbackClass = FNSHJavaHandlerForJava.class) // TODO 没有提示修改 visibility
+    @SentinelResource(fallback = "fallback", fallbackClass = FNSHJavaHandlerForJava.class)
     @Override
     public Integer second() {
         return doSecond();

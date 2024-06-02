@@ -10,7 +10,7 @@ import static org.example.demo.biz.Biz.doConsumeString;
 
 @Component
 public class JavaFHSNHandlerJavaDemo implements Demo {
-    @SentinelResource(fallback = "fallback", fallbackClass = JavaFHSNHandlerForJava.class) // TODO 没有提示修改 visibility
+    @SentinelResource(fallback = "fallback", fallbackClass = JavaFHSNHandlerForJava.class)
     @Override
     public void consumeString(@Nullable String str) {
         doConsumeString(str);

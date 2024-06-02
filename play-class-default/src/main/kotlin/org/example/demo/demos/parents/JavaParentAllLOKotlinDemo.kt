@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component
  */
 @Component
 class JavaParentAllLOKotlinDemo : JavaParentAllLOForKotlin() {
-    @SentinelResource(value = "demo") // TODO 设置 defaultFallback 后没有提示修改 visibility
+    @SentinelResource(value = "demo")
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }
 
-    // TODO 没有提示 shadow ，不论方法是否设置 defaultFallback
+    // TODO 没有提示 shadow ，方法设置 defaultFallback 后提示
     public override fun defaultFallback(e: Throwable): String {
         return Greeting.doDefaultFallback(e)
     }

@@ -13,12 +13,12 @@ import static org.example.demo.biz.Greeting.doGreeting;
  */
 @Component
 public class JavaParentSNJavaDemo extends JavaParentSNForJava {
-    @SentinelResource(value = "demo") // TODO 设置 defaultFallback 后没有提示修改 visibility
+    @SentinelResource(value = "demo")
     public String greeting(String name) {
         return doGreeting(name);
     }
 
-    // TODO 没有提示 shadow，不论方法是否设置 defaultFallback
+    // TODO 没有提示 shadow，方法设置 defaultFallback 后提示
     private String defaultFallback(Throwable e) {
         return doDefaultFallback(e);
     }

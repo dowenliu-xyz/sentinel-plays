@@ -9,13 +9,13 @@ import static org.example.demo.biz.Biz.*;
 
 @Component
 public class JavaFHSSHandlerJavaDemo implements Demo {
-    @SentinelResource(fallback = "fallback", fallbackClass = JavaFHSSHandlerForJava.class)  // TODO 没有提示修改 visibility
+    @SentinelResource(fallback = "fallback", fallbackClass = JavaFHSSHandlerForJava.class)
     @Override
     public void consumeString(@Nullable String str) {
         doConsumeString(str);
     }
 
-    @SentinelResource(fallback = "fallback") // TODO 没有提示创建方法
+    @SentinelResource(fallback = "fallback")
     @Override
     public void consumeInteger(@Nullable Integer integer) {
         doConsumeInteger(integer);

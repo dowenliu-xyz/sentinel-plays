@@ -16,7 +16,7 @@ public class JavaFNSHHandlerJavaDemo implements Demo {
         doConsumeString(str);
     }
 
-    @SentinelResource(fallback = "fallback", fallbackClass = JavaFNSHHandlerForJava.class) // TODO 没有提示修改 visibility
+    @SentinelResource(fallback = "fallback", fallbackClass = JavaFNSHHandlerForJava.class)
     @Override
     public void consumeInteger(@Nullable Integer integer) {
         doConsumeInteger(integer);

@@ -11,7 +11,7 @@ class JavaFHSHHandlerKotlinDemo : Demo {
     @SentinelResource(
         fallback = "fallback",
         fallbackClass = [JavaFHSHHandlerForKotlin::class]
-    ) // TODO 没有提示修改 visibility
+    ) // TODO 重命名 quickfix 没有改本地引用值
     override fun consumeString(str: String?) {
         doConsumeString(str)
     }
@@ -19,7 +19,7 @@ class JavaFHSHHandlerKotlinDemo : Demo {
     @SentinelResource(
         fallback = "fallback",
         fallbackClass = [JavaFHSHHandlerForKotlin::class]
-    ) // TODO 没有提示修改 visibility
+    ) // TODO 重命名 quickfix 没有改本地引用值
     override fun consumeInteger(integer: Int?) {
         doConsumeInteger(integer)
     }
