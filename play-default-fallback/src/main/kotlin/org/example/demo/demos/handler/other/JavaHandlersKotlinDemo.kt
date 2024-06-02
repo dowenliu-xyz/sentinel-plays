@@ -1,12 +1,16 @@
-package org.example.demo.demos.parents
+package org.example.demo.demos.handler.other
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource
 import org.example.demo.biz.Greeting
 import org.springframework.stereotype.Component
 
 @Component
-class ACFPJavaParentKotlinDemo : ACFPJavaParentForKotlin() {
-    @SentinelResource(value = "demo", fallback = "fallback")
+class JavaHandlersKotlinDemo {
+    @SentinelResource(
+        value = "demo",
+        defaultFallback = "defaultFallback",
+        fallbackClass = [JavaHandlersForKotlin::class]
+    )
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class ACFPJavaParentKotlinDemo : ACFPJavaParentForKotlin() {
-    @SentinelResource(value = "demo", fallback = "fallback")
+    @SentinelResource(value = "demo", defaultFallback = "defaultFallback")
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

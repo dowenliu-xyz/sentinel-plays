@@ -1,6 +1,7 @@
 rootProject.name = "sentinel-plays"
 include("play-basic")
 include("play-class-default")
+include("play-default-fallback")
 include("play-fallback-shadow")
 include("play-openfeign-simple")
 include("play-openfeign-cloud")
