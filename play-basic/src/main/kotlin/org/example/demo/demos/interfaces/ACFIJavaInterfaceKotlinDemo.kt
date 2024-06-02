@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component
  * case impl: Annotation in Class and Fallback in Interface
  * <br/>
  * Aspect takes effect, but CAN NOT find fallback method.
- * TODO 现在插件把接口上的方法也找出来了，画蛇添足。
  */
 @Component
 class ACFIJavaInterfaceKotlinDemo : ACFIJavaInterfaceForKotlin {
