@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
         url = "http://localhost:8011",
         fallbackFactory = HttpBinFeignApi.FallbackFactory.class
 )
-// TODO request handler resource name 不应该在 FeignClient 里提示，应该限制在 Controller 里
 public interface HttpBinFeignApi {
     @GetMapping("/status/{code}")
     JsonNode status(@PathVariable int code);
