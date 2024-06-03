@@ -1,0 +1,18 @@
+package org.example.fs.demos.parents
+
+import com.alibaba.csp.sentinel.annotation.SentinelResource
+import org.example.fs.biz.Greeting.doFallback
+import org.example.fs.biz.Greeting.doGreeting
+import org.springframework.stereotype.Component
+
+@Component
+class JavaParentAllSOKotlinDemo : JavaParentAllSOForKotlin() {
+    @SentinelResource(value = "demo", fallback = "fallback")
+    fun greeting(name: String?): String {
+        return doGreeting(name)
+    }
+
+    override fun fallback(name: String?): String {
+        return doFallback(name)
+    }
+}
