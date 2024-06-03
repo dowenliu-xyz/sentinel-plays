@@ -7,9 +7,9 @@ import static org.example.demo.biz.Greeting.doGreeting;
 
 
 @SentinelResource(
-        blockHandlerClass = {BlockHandlerClass.class},
+        blockHandlerClass = {BlockHandlerClass.class, BlockHandlerClass2.class},
         defaultFallback = "defaultFallback",
-        fallbackClass = {FallbackClass.class, FallbackClass2.class} // TODO 没有提示清除多余类
+        fallbackClass = {FallbackClass.class, FallbackClass2.class}
 )
 @SuppressWarnings("unused")
 @Component

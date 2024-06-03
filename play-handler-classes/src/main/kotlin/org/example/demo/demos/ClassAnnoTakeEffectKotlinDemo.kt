@@ -5,9 +5,9 @@ import org.example.demo.biz.Greeting
 import org.springframework.stereotype.Component
 
 @SentinelResource(
-    blockHandlerClass = [BlockHandlerClass::class],
+    blockHandlerClass = [BlockHandlerClass::class, BlockHandlerClass2::class],
     defaultFallback = "defaultFallback",
-    fallbackClass = [FallbackClass::class, FallbackClass2::class] // TODO 没有提示清除多余类
+    fallbackClass = [FallbackClass::class, FallbackClass2::class]
 )
 @Suppress("unused")
 @Component
