@@ -12,7 +12,6 @@ open class KotlinParentCAForKotlin {
         return ""
     }
 
-    // TODO 没有作为任何方法的 defaultFallback ，结果也提示 shadow 了
     protected fun defaultFallbackParent(e: Throwable?): String {
         return ""
     }

@@ -10,7 +10,6 @@ public class JavaParentAllLOForKotlin {
         return doDefaultFallback();
     }
 
-    // TODO 被重写方法不需要提示 shadow
     protected String defaultFallback(Throwable e) {
         return "";
     }

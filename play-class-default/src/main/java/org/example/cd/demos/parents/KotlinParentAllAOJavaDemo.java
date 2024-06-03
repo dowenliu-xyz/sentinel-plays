@@ -12,7 +12,7 @@ import static org.example.cd.biz.Greeting.doGreeting;
  * case: annotation on parent class, all defaultFallback method overridden
  * <p>
  * Aspect takes effect, defaultFallback takes effect.
- * TODO 类注解时没有提示 shadow，但在父类中的提示，但提示 shadow 方法没有指向子类重写方法
+ * TODO 类注解时没有提示 shadow ，方法设置 defaultFallback 后有提示
  */
 @Component
 public class KotlinParentAllAOJavaDemo extends KotlinParentAllAOForJava {

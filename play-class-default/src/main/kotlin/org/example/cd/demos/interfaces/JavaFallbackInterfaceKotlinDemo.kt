@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component
  * Aspect takes effect, but the defaultFallback method can not be found.
  */
 @Component
-@SentinelResource(defaultFallback = "defaultFallback") // TODO 不应该解析出 接口上的方法。画蛇添足。
+@SentinelResource(defaultFallback = "defaultFallback") // TODO 没有提示找不到 defaultFallback 方法
 class JavaFallbackInterfaceKotlinDemo : JavaFallbackInterfaceForKotlin {
-    @SentinelResource(value = "demo") // TODO 方法设置 defaultFallback 后也不应该解析出接口上的方法。画蛇添足
+    @SentinelResource(value = "demo")
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

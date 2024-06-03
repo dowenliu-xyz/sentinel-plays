@@ -12,7 +12,6 @@ public class JavaParentCAForJava {
         return "";
     }
 
-    // TODO 没有作为任何方法的 defaultFallback ，结果也提示 shadow 了
     protected String defaultFallbackParent(Throwable e) {
         return "";
     }
