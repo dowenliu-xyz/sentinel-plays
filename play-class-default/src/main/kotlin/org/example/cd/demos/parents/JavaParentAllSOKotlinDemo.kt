@@ -2,6 +2,7 @@ package org.example.cd.demos.parents
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource
 import org.example.cd.biz.Greeting
+import org.springframework.context.annotation.Primary
 import org.springframework.stereotype.Component
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component
  * Aspect takes effect, defaultFallback takes effect.
  */
 @Component
+@Primary
 class JavaParentAllSOKotlinDemo : JavaParentAllSOForKotlin() {
     @SentinelResource(value = "demo") // TODO 设置 defaultFallback 后没有提示修改 visibility
     fun greeting(name: String?): String {

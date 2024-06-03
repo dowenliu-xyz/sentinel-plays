@@ -1,6 +1,7 @@
 package org.example.cd.demos.parents;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import static org.example.cd.biz.Greeting.doDefaultFallback;
@@ -13,6 +14,7 @@ import static org.example.cd.biz.Greeting.doGreeting;
  * TODO 类注解时没有提示 shadow ，方法设置 defaultFallback 后有提示
  */
 @Component
+@Primary
 public class JavaParentAllAOJavaDemo extends JavaParentAllAOForJava {
     @SentinelResource(value = "demo")
     public String greeting(String name) {

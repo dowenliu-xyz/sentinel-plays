@@ -2,6 +2,7 @@ package org.example.cd.demos.parents
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource
 import org.example.cd.biz.Greeting
+import org.springframework.context.annotation.Primary
 import org.springframework.stereotype.Component
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component
  * Aspect takes effect, defaultFallback takes effect.
  */
 @Component
+@Primary
 class KotlinParentNKotlinDemo : KotlinParentNForKotlin() {
     @SentinelResource(value = "demo")
     fun greeting(name: String?): String {
