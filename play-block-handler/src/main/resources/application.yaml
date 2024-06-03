@@ -1,0 +1,8 @@
+spring:
+  aop:
+    # Default true.
+    # When set to false, beans that should be aop proxied and has implements any interface will be jdk-proxied.
+    # 与 r4j 不同，sentinel 大部分 bean 的 aop 不受代理类型影响。
+    # 但 target 本身就是 jdk 代理时 （典型的，Feign client 接口），r4j 和 sentinel 表现不同：
+    # r4j fallbackMethod 失效；sentinel 直接报 IllegalStateException ，源方法也不执行。
+    proxy-target-class: true
