@@ -8,6 +8,6 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
  * Aspect DOES NOT take effect, fallback does not take effect
  */
 public abstract class AAPJavaParentForKotlin {
-    @SentinelResource(value = "demo", blockHandler = "blockHandler") // TODO 提示注解无效，还检查了 blockHandler
+    @SentinelResource(value = "demo", blockHandler = "blockHandler")
     public abstract String greeting(String name);
 }

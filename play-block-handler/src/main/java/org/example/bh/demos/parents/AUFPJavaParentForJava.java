@@ -10,7 +10,7 @@ import static org.example.bh.biz.Greeting.doGreeting;
  * Aspect DOES NOT take effect, fallback does not take effect.
  */
 public class AUFPJavaParentForJava {
-    @SentinelResource(value = "demo", blockHandler = "blockHandler") // TODO 提示注解无效，还检查了 blockHandler
+    @SentinelResource(value = "demo", blockHandler = "blockHandler")
     public final String greeting(String name) {
         return doGreeting(name);
     }

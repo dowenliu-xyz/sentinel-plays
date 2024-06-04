@@ -9,7 +9,7 @@ import org.example.bh.biz.Greeting.doGreeting
  * Aspect DOES NOT take effect, fallback does not take effect. Because method is overridden.
  */
 open class AOPKotlinParentForJava {
-    @SentinelResource(value = "demo", blockHandler = "blockHandler") // TODO 提示注解无效，还检查了 blockHandler
+    @SentinelResource(value = "demo", blockHandler = "blockHandler")
     open fun greeting(name: String?): String {
         return doGreeting(name)
     }

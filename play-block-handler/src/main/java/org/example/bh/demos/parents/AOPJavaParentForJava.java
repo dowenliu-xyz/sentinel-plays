@@ -10,7 +10,7 @@ import static org.example.bh.biz.Greeting.doGreeting;
  * Aspect DOES NOT take effect, fallback does not take effect. Because method is overridden.
  */
 public class AOPJavaParentForJava {
-    @SentinelResource(value = "demo", blockHandler = "blockHandler") // TODO 提示注解无效，还检查了 blockHandler
+    @SentinelResource(value = "demo", blockHandler = "blockHandler")
     public String greeting(String name) {
         return doGreeting(name);
     }
