@@ -1,5 +1,6 @@
 package org.example.os.feign;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 )
 public interface HttpBinFeignApi {
     @GetMapping("/status/{code}")
-    // @SentinelResource(value = "httpBinStatus") // TODO Enable this annotation cause IllegalStateException.
+//    @SentinelResource(value = "httpBinStatus")
     JsonNode status(@PathVariable int code);
 
     @GetMapping("/get")

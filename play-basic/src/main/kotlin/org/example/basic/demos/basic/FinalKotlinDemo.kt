@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory
  * case: annotation-base bean (final class); annotation on method; fallback in current class
  * <br/>
  * Application bootstrap failed.
- * TODO 现在插件未提示会导致启动失败
  */
 //@Component // Enable this line will cause the application bootstrap failed.
 @Suppress("unused")

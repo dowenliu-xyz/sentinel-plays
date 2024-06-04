@@ -8,10 +8,9 @@ import static org.example.df.biz.Greeting.doGreeting;
  * case: Annotated Overridden Parent
  * <br/>
  * Aspect DOES NOT take effect, fallback does not take effect. Because method is overridden.
- * TODO 现在插件没有提示注解失效
  */
 public class AOPJavaParentForKotlin {
-    @SentinelResource(value = "demo", defaultFallback = "defaultFallback")
+    @SentinelResource(value = "demo", defaultFallback = "defaultFallback") // TODO 提示注解无效，还检查了 defaultFallback
     public String greeting(String name) {
         return doGreeting(name);
     }
