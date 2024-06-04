@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @SuppressWarnings("unused")
 @Component
 @Slf4j
-public class AUPJavaParentJavaDem2 extends AUPJavaParentForJava {
+public class AUPJavaParentJavaDemo2 extends AUPJavaParentForJava {
     private String fallback(String name, Throwable e) {
         return Greeting.doFallback(name, e);
     }

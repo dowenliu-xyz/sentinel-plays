@@ -3,6 +3,7 @@ package org.example.basic;
 import lombok.RequiredArgsConstructor;
 import org.example.basic.demos.basic.BasicClassJavaDemo;
 import org.example.basic.demos.basic.BasicJavaDemo;
+import org.example.basic.demos.handler.other.*;
 import org.example.basic.demos.handler.self.SelfHandlersJavaDemo;
 import org.example.basic.demos.interfaces.ACFIJavaInterfaceForJava;
 import org.example.basic.demos.interfaces.ACFIJavaInterfaceForKotlin;
@@ -11,10 +12,6 @@ import org.example.basic.demos.interfaces.AnnotatedJavaInterfaceForKotlin;
 import org.example.basic.demos.parents.*;
 import org.example.basic.demos.basic.BasicClassKotlinDemo;
 import org.example.basic.demos.basic.BasicKotlinDemo;
-import org.example.basic.demos.handler.other.JavaHandlersJavaDemo;
-import org.example.basic.demos.handler.other.JavaHandlersKotlinDemo;
-import org.example.basic.demos.handler.other.KotlinHandlersJavaDemo;
-import org.example.basic.demos.handler.other.KotlinHandlersKotlinDemo;
 import org.example.basic.demos.handler.self.SelfHandlersKotlinDemo;
 import org.example.basic.demos.interfaces.*;
 import org.springframework.boot.CommandLineRunner;
@@ -35,9 +32,13 @@ public class Runner implements CommandLineRunner {
     private final SelfHandlersJavaDemo selfHandlersJavaDemo;
     private final SelfHandlersKotlinDemo selfHandlersKotlinDemo;
     private final JavaHandlersJavaDemo javaHandlersJavaDemo;
+    private final JavaHandlerInterfaceJavaDemo javaHandlerInterfaceJavaDemo;
     private final KotlinHandlersJavaDemo kotlinHandlersJavaDemo;
+    private final KotlinHandlerInterfaceJavaDemo kotlinHandlerInterfaceJavaDemo;
     private final JavaHandlersKotlinDemo javaHandlersKotlinDemo;
+    private final JavaHandlerInterfaceKotlinDemo javaHandlerInterfaceKotlinDemo;
     private final KotlinHandlersKotlinDemo kotlinHandlersKotlinDemo;
+    private final KotlinHandlerInterfaceKotlinDemo kotlinHandlerInterfaceKotlinDemo;
     private final ACFIJavaInterfaceForJava acfiJavaInterfaceForJava;
     private final ACFIKotlinInterfaceForJava acfiKotlinInterfaceForJava;
     private final AnnotatedJavaInterfaceForJava annotatedJavaInterfaceJavaDemo;
@@ -81,9 +82,13 @@ public class Runner implements CommandLineRunner {
         }
         {
             expectFallback(javaHandlersJavaDemo::greeting);
+            expectFallback(javaHandlerInterfaceJavaDemo::greeting);
             expectFallback(kotlinHandlersJavaDemo::greeting);
+            expectFallback(kotlinHandlerInterfaceJavaDemo::greeting);
             expectFallback(javaHandlersKotlinDemo::greeting);
+            expectFallback(javaHandlerInterfaceKotlinDemo::greeting);
             expectFallback(kotlinHandlersKotlinDemo::greeting);
+            expectFallback(kotlinHandlerInterfaceKotlinDemo::greeting);
         }
         {
             expectNoFallbackTakeEffect(acfiJavaInterfaceForJava::greeting);

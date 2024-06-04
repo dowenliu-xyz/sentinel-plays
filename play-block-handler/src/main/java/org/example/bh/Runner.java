@@ -6,10 +6,7 @@ import org.example.bh.demos.basic.BasicClassJavaDemo;
 import org.example.bh.demos.basic.BasicClassKotlinDemo;
 import org.example.bh.demos.basic.BasicJavaDemo;
 import org.example.bh.demos.basic.BasicKotlinDemo;
-import org.example.bh.demos.handler.other.JavaHandlersJavaDemo;
-import org.example.bh.demos.handler.other.JavaHandlersKotlinDemo;
-import org.example.bh.demos.handler.other.KotlinHandlersJavaDemo;
-import org.example.bh.demos.handler.other.KotlinHandlersKotlinDemo;
+import org.example.bh.demos.handler.other.*;
 import org.example.bh.demos.handler.self.SelfHandlersJavaDemo;
 import org.example.bh.demos.handler.self.SelfHandlersKotlinDemo;
 import org.example.bh.demos.interfaces.*;
@@ -32,9 +29,13 @@ public class Runner implements CommandLineRunner {
     private final SelfHandlersJavaDemo selfHandlersJavaDemo;
     private final SelfHandlersKotlinDemo selfHandlersKotlinDemo;
     private final JavaHandlersJavaDemo javaHandlersJavaDemo;
+    private final JavaHandlerInterfaceJavaDemo javaHandlerInterfaceJavaDemo;
     private final KotlinHandlersJavaDemo kotlinHandlersJavaDemo;
+    private final KotlinHandlerInterfaceJavaDemo kotlinHandlerInterfaceJavaDemo;
     private final JavaHandlersKotlinDemo javaHandlersKotlinDemo;
+    private final JavaHandlerInterfaceKotlinDemo javaHandlerInterfaceKotlinDemo;
     private final KotlinHandlersKotlinDemo kotlinHandlersKotlinDemo;
+    private final KotlinHandlerInterfaceKotlinDemo kotlinHandlerInterfaceKotlinDemo;
     private final ACFIJavaInterfaceForJava acfiJavaInterfaceForJava;
     private final ACFIKotlinInterfaceForJava acfiKotlinInterfaceForJava;
     private final AnnotatedJavaInterfaceForJava annotatedJavaInterfaceJavaDemo;
@@ -78,9 +79,13 @@ public class Runner implements CommandLineRunner {
         }
         {
             expectBlockHandle(javaHandlersJavaDemo::greeting);
+            expectBlockHandle(javaHandlerInterfaceJavaDemo::greeting);
             expectBlockHandle(kotlinHandlersJavaDemo::greeting);
+            expectBlockHandle(kotlinHandlerInterfaceJavaDemo::greeting);
             expectBlockHandle(javaHandlersKotlinDemo::greeting);
+            expectBlockHandle(javaHandlerInterfaceKotlinDemo::greeting);
             expectBlockHandle(kotlinHandlersKotlinDemo::greeting);
+            expectBlockHandle(kotlinHandlerInterfaceKotlinDemo::greeting);
         }
         {
             expectNoBlockHandleTakeEffect(acfiJavaInterfaceForJava::greeting);

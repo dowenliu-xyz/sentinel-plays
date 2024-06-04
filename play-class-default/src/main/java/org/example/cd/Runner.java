@@ -1,10 +1,7 @@
 package org.example.cd;
 
 import lombok.RequiredArgsConstructor;
-import org.example.cd.demos.handlers.JavaHandlersJavaDemo;
-import org.example.cd.demos.handlers.JavaHandlersKotlinDemo;
-import org.example.cd.demos.handlers.KotlinHandlersJavaDemo;
-import org.example.cd.demos.handlers.KotlinHandlersKotlinDemo;
+import org.example.cd.demos.handlers.*;
 import org.example.cd.demos.interfaces.*;
 import org.example.cd.demos.parents.*;
 import org.example.cd.demos.self.SelfJavaDemo;
@@ -67,9 +64,13 @@ public class Runner implements CommandLineRunner {
     private final KotlinFallbackInterfaceJavaDemo kotlinFallbackInterfaceJavaDemo;
     private final KotlinFallbackInterfaceKotlinDemo kotlinFallbackInterfaceKotlinDemo;
     private final JavaHandlersJavaDemo javaHandlersJavaDemo;
+    private final JavaHandlerInterfaceJavaDemo javaHandlerInterfaceJavaDemo;
     private final JavaHandlersKotlinDemo javaHandlersKotlinDemo;
+    private final JavaHandlerInterfaceKotlinDemo javaHandlerInterfaceKotlinDemo;
     private final KotlinHandlersJavaDemo kotlinHandlersJavaDemo;
+    private final KotlinHandlerInterfaceJavaDemo kotlinHandlerInterfaceJavaDemo;
     private final KotlinHandlersKotlinDemo kotlinHandlersKotlinDemo;
+    private final KotlinHandlerInterfaceKotlinDemo kotlinHandlerInterfaceKotlinDemo;
     private final JavaParentCAJavaDemo javaParentCAJavaDemo;
     private final JavaParentCAKotlinDemo javaParentCAKotlinDemo;
     private final KotlinParentCAJavaDemo kotlinParentCAJavaDemo;
@@ -135,9 +136,13 @@ public class Runner implements CommandLineRunner {
         }
         {
             expectFallback(javaHandlersJavaDemo::greeting);
+            expectFallback(javaHandlerInterfaceJavaDemo::greeting);
             expectFallback(javaHandlersKotlinDemo::greeting);
+            expectFallback(javaHandlerInterfaceKotlinDemo::greeting);
             expectFallback(kotlinHandlersJavaDemo::greeting);
+            expectFallback(kotlinHandlerInterfaceJavaDemo::greeting);
             expectFallback(kotlinHandlersKotlinDemo::greeting);
+            expectFallback(kotlinHandlerInterfaceKotlinDemo::greeting);
         }
     }
 

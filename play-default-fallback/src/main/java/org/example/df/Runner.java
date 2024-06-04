@@ -5,10 +5,7 @@ import org.example.df.demos.basic.BasicClassJavaDemo;
 import org.example.df.demos.basic.BasicClassKotlinDemo;
 import org.example.df.demos.basic.BasicJavaDemo;
 import org.example.df.demos.basic.BasicKotlinDemo;
-import org.example.df.demos.handler.other.JavaHandlersJavaDemo;
-import org.example.df.demos.handler.other.JavaHandlersKotlinDemo;
-import org.example.df.demos.handler.other.KotlinHandlersJavaDemo;
-import org.example.df.demos.handler.other.KotlinHandlersKotlinDemo;
+import org.example.df.demos.handler.other.*;
 import org.example.df.demos.handler.self.SelfHandlersJavaDemo;
 import org.example.df.demos.handler.self.SelfHandlersKotlinDemo;
 import org.example.df.demos.interfaces.*;
@@ -31,9 +28,13 @@ public class Runner implements CommandLineRunner {
     private final SelfHandlersJavaDemo selfHandlersJavaDemo;
     private final SelfHandlersKotlinDemo selfHandlersKotlinDemo;
     private final JavaHandlersJavaDemo javaHandlersJavaDemo;
+    private final JavaHandlerInterfaceJavaDemo javaHandlerInterfaceJavaDemo;
     private final KotlinHandlersJavaDemo kotlinHandlersJavaDemo;
+    private final KotlinHandlerInterfaceJavaDemo kotlinHandlerInterfaceJavaDemo;
     private final JavaHandlersKotlinDemo javaHandlersKotlinDemo;
+    private final JavaHandlerInterfaceKotlinDemo javaHandlerInterfaceKotlinDemo;
     private final KotlinHandlersKotlinDemo kotlinHandlersKotlinDemo;
+    private final KotlinHandlerInterfaceKotlinDemo kotlinHandlerInterfaceKotlinDemo;
     private final ACFIJavaInterfaceForJava acfiJavaInterfaceForJava;
     private final ACFIKotlinInterfaceForJava acfiKotlinInterfaceForJava;
     private final AnnotatedJavaInterfaceForJava annotatedJavaInterfaceJavaDemo;
@@ -77,9 +78,13 @@ public class Runner implements CommandLineRunner {
         }
         {
             expectDefaultFallback(javaHandlersJavaDemo::greeting);
+            expectDefaultFallback(javaHandlerInterfaceJavaDemo::greeting);
             expectDefaultFallback(kotlinHandlersJavaDemo::greeting);
+            expectDefaultFallback(kotlinHandlerInterfaceJavaDemo::greeting);
             expectDefaultFallback(javaHandlersKotlinDemo::greeting);
+            expectDefaultFallback(javaHandlerInterfaceKotlinDemo::greeting);
             expectDefaultFallback(kotlinHandlersKotlinDemo::greeting);
+            expectDefaultFallback(kotlinHandlerInterfaceKotlinDemo::greeting);
         }
         {
             expectNoDefaultFallbackTakeEffect(acfiJavaInterfaceForJava::greeting);
