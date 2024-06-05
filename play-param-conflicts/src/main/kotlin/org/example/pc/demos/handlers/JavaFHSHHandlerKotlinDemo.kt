@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component
 @Component
 class JavaFHSHHandlerKotlinDemo : Demo {
     @SentinelResource(
-        fallback = "fallback",
-        fallbackClass = [JavaFHSHHandlerForKotlin::class]
-    ) // TODO 重命名 quickfix 没有改本地引用值
+        blockHandler = "blockHandler", blockHandlerClass = [JavaFHSHHandlerForKotlin::class],
+        fallback = "fallback", fallbackClass = [JavaFHSHHandlerForKotlin::class]
+    )
     override fun consumeString(str: String?) {
         doConsumeString(str)
     }
 
     @SentinelResource(
-        fallback = "fallback",
-        fallbackClass = [JavaFHSHHandlerForKotlin::class]
-    ) // TODO 重命名 quickfix 没有改本地引用值
+        blockHandler = "blockHandler", blockHandlerClass = [JavaFHSHHandlerForKotlin::class],
+        fallback = "fallback", fallbackClass = [JavaFHSHHandlerForKotlin::class]
+    )
     override fun consumeInteger(integer: Int?) {
         doConsumeInteger(integer)
     }

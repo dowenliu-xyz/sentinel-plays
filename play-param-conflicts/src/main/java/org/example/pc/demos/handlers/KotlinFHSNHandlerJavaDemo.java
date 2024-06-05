@@ -10,7 +10,10 @@ import static org.example.pc.biz.Biz.doConsumeString;
 
 @Component
 public class KotlinFHSNHandlerJavaDemo implements Demo {
-    @SentinelResource(fallback = "fallback", fallbackClass = KotlinFHSNHandlerForJava.class)
+    @SentinelResource(
+            blockHandler = "blockHandler", blockHandlerClass = KotlinFHSNHandlerForJava.class,
+            fallback = "fallback", fallbackClass = KotlinFHSNHandlerForJava.class
+    )
     @Override
     public void consumeString(@Nullable String str) {
         doConsumeString(str);

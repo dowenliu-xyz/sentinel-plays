@@ -13,6 +13,8 @@ class JavaFNSHHandlerKotlinDemo : Demo {
     }
 
     @SentinelResource(
+        blockHandler = "blockHandler",
+        blockHandlerClass = [JavaFNSHHandlerForKotlin::class],
         fallback = "fallback",
         fallbackClass = [JavaFNSHHandlerForKotlin::class]
     )

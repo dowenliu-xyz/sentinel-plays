@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component
 @Component
 class JavaFHSNHandlerKotlinDemo : Demo {
     @SentinelResource(
+        blockHandler = "blockHandler",
+        blockHandlerClass = [JavaFHSNHandlerForKotlin::class],
         fallback = "fallback",
         fallbackClass = [JavaFHSNHandlerForKotlin::class]
     )

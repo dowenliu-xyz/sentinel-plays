@@ -12,7 +12,10 @@ class KotlinFNSHHandlerKotlinDemo : Demo {
         Biz.doConsumeString(str)
     }
 
-    @SentinelResource(fallback = "fallback", fallbackClass = [KotlinFNSHHandlerForKotlin::class])
+    @SentinelResource(
+        blockHandler = "blockHandler", blockHandlerClass = [KotlinFNSHHandlerForKotlin::class],
+        fallback = "fallback", fallbackClass = [KotlinFNSHHandlerForKotlin::class],
+    )
     override fun consumeInteger(integer: Int?) {
         Biz.doConsumeInteger(integer)
     }

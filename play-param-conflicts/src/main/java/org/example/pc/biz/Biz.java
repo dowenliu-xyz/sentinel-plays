@@ -1,5 +1,7 @@
 package org.example.pc.biz;
 
+import com.alibaba.csp.sentinel.slots.block.BlockException;
+
 public class Biz {
     public static void doConsumeString(String str) {
         if (str == null || str.isBlank()) {
@@ -17,5 +19,13 @@ public class Biz {
     }
 
     public static void doFallback(@SuppressWarnings("unused") Integer integer) {
+    }
+
+    @SuppressWarnings("unused")
+    public static void doBlockHandle(String str, BlockException e) {
+    }
+
+    @SuppressWarnings("unused")
+    public static void doBlockHandle(Integer integer, BlockException e) {
     }
 }

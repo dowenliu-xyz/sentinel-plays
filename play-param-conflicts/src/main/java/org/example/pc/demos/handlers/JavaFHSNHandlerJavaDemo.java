@@ -10,7 +10,10 @@ import static org.example.pc.biz.Biz.doConsumeString;
 
 @Component
 public class JavaFHSNHandlerJavaDemo implements Demo {
-    @SentinelResource(fallback = "fallback", fallbackClass = JavaFHSNHandlerForJava.class)
+    @SentinelResource(
+            blockHandler = "blockHandler", blockHandlerClass = JavaFHSNHandlerForJava.class,
+            fallback = "fallback", fallbackClass = JavaFHSNHandlerForJava.class
+    )
     @Override
     public void consumeString(@Nullable String str) {
         doConsumeString(str);

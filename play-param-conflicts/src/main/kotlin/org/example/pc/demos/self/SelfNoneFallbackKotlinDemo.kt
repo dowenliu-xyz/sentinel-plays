@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component
  */
 @Component
 class SelfNoneFallbackKotlinDemo : Demo {
-    @SentinelResource(fallback = "fallback")
+    @SentinelResource(blockHandler = "blockHandler", fallback = "fallback")
     override fun consumeString(str: String?) {
         Biz.doConsumeString(str)
     }
 
-    @SentinelResource(fallback = "fallback")
+    @SentinelResource(blockHandler = "blockHandler", fallback = "fallback")
     override fun consumeInteger(integer: Int?) {
         Biz.doConsumeInteger(integer)
     }

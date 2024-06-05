@@ -1,7 +1,9 @@
 package org.example.pc.demos.self
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource
+import com.alibaba.csp.sentinel.slots.block.BlockException
 import org.example.pc.biz.Biz
+import org.example.pc.biz.Biz.doBlockHandle
 import org.example.pc.biz.Demo
 import org.springframework.stereotype.Component
 
@@ -9,18 +11,21 @@ import org.springframework.stereotype.Component
  * case: first fallback provided, but second not
  * <br></br>
  * Conflict.
- * TODO 没有提示出来冲突
  */
 @Component
 class SelfFirstFallbackKotlinDemo : Demo {
-    @SentinelResource(fallback = "fallback")
+    @SentinelResource(blockHandler = "blockHandler", fallback = "fallback")
     override fun consumeString(str: String?) {
         Biz.doConsumeString(str)
     }
 
-    @SentinelResource(fallback = "fallback")
+    @SentinelResource(blockHandler = "blockHandler", fallback = "fallback")
     override fun consumeInteger(integer: Int?) {
         Biz.doConsumeInteger(integer)
+    }
+
+    private fun blockHandler(str: String?, e: BlockException) {
+        doBlockHandle(str, e)
     }
 
     private fun fallback(str: String?) {

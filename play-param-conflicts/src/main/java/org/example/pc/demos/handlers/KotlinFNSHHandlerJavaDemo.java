@@ -16,7 +16,10 @@ public class KotlinFNSHHandlerJavaDemo implements Demo {
         doConsumeString(str);
     }
 
-    @SentinelResource(fallback = "fallback", fallbackClass = KotlinFNSHHandlerForJava.class)
+    @SentinelResource(
+            blockHandler = "blockHandler", blockHandlerClass = KotlinFNSHHandlerForJava.class,
+            fallback = "fallback", fallbackClass = KotlinFNSHHandlerForJava.class
+    )
     @Override
     public void consumeInteger(@Nullable Integer integer) {
         doConsumeInteger(integer);

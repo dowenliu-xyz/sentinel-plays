@@ -14,13 +14,13 @@ import static org.example.pc.biz.Biz.*;
  */
 @Component
 public class SelfNoneFallbackJavaDemo implements Demo {
-    @SentinelResource(fallback = "fallback")
+    @SentinelResource(blockHandler = "blockHandler", fallback = "fallback")
     @Override
     public void consumeString(@Nullable String str) {
         doConsumeString(str);
     }
 
-    @SentinelResource(fallback = "fallback")
+    @SentinelResource(blockHandler = "blockHandler", fallback = "fallback")
     @Override
     public void consumeInteger(@Nullable Integer integer) {
         doConsumeInteger(integer);

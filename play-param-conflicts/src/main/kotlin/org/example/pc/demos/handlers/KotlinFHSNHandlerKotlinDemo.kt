@@ -7,7 +7,10 @@ import org.springframework.stereotype.Component
 
 @Component
 class KotlinFHSNHandlerKotlinDemo : Demo {
-    @SentinelResource(fallback = "fallback", fallbackClass = [KotlinFHSNHandlerForKotlin::class])
+    @SentinelResource(
+        blockHandler = "blockHandler", blockHandlerClass = [KotlinFHSNHandlerForKotlin::class],
+        fallback = "fallback", fallbackClass = [KotlinFHSNHandlerForKotlin::class],
+        )
     override fun consumeString(str: String?) {
         Biz.doConsumeString(str)
     }
