@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component
  */
 @Component
 class KotlinParentAllNOKotlinDemo : KotlinParentAllNOForKotlin() {
-    @SentinelResource(value = "demo") // TODO 设置 defaultFallback 后提示修改 visibility 只要修改一个之后，另一个就不提示了
+    @SentinelResource(value = "demo") // TODO 未设置到方法时，visibility 问题没提示
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

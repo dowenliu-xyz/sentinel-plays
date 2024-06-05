@@ -13,7 +13,7 @@ import static org.example.cd.biz.Greeting.doGreeting;
  */
 @Component
 public class JavaParentLNJavaDemo2 extends JavaParentLNForJava {
-    @SentinelResource(value = "demo") // TODO 设置 defaultFallback 后没有提示修改 visibility
+    @SentinelResource(value = "demo") // TODO 未设置到方法时，visibility 问题没提示
     public String greeting(String name) {
         return doGreeting(name);
     }
