@@ -2,6 +2,7 @@ package org.example.cd.demos.handlers;
 
 import static org.example.cd.biz.Greeting.doDefaultFallback;
 
+// TODO 类注解时没的提示 shadow
 public class JavaHandlersForKotlin {
     private static String defaultFallback() {
         return doDefaultFallback();
