@@ -16,7 +16,7 @@ import static org.example.cd.biz.Greeting.doGreeting;
 @Component
 @Primary
 public class KotlinParentAllSOJavaDemo extends KotlinParentAllSOForJava {
-    @SentinelResource(value = "demo") // TODO 未设置到方法时，visibility 问题没提示
+    @SentinelResource(value = "demo")
     public String greeting(String name) {
         return doGreeting(name);
     }

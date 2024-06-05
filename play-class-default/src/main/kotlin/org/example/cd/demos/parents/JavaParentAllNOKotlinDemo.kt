@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component
  */
 @Component
 class JavaParentAllNOKotlinDemo : JavaParentAllNOForKotlin() {
-    @SentinelResource(value = "demo") // TODO 未设置到方法时，visibility 问题没提示
+    @SentinelResource(value = "demo")
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

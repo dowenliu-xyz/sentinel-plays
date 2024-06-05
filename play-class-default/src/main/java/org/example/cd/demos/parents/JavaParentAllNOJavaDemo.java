@@ -13,7 +13,7 @@ import static org.example.cd.biz.Greeting.doGreeting;
  */
 @Component
 public class JavaParentAllNOJavaDemo extends JavaParentAllNOForJava {
-    @SentinelResource(value = "demo") // TODO 未设置到方法时，visibility 问题没提示
+    @SentinelResource(value = "demo")
     public String greeting(String name) {
         return doGreeting(name);
     }
