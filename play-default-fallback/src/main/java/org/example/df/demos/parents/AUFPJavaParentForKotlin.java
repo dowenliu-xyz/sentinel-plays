@@ -10,7 +10,7 @@ import static org.example.df.biz.Greeting.doGreeting;
  * Aspect DOES NOT take effect, fallback does not take effect.
  */
 public class AUFPJavaParentForKotlin {
-    @SentinelResource(value = "demo", defaultFallback = "defaultFallback") // TODO 提示注解无效，还检查了 defaultFallback
+    @SentinelResource(value = "demo", defaultFallback = "defaultFallback")
     public final String greeting(String name) {
         return doGreeting(name);
     }

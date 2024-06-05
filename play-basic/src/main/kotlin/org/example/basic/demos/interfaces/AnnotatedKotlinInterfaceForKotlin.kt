@@ -8,6 +8,6 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource
  * Aspect DOES NOT take effect, fallback does not take effect
  */
 interface AnnotatedKotlinInterfaceForKotlin {
-    @SentinelResource(value = "demo", fallback = "fallback") // TODO 提示注解无效，还检查了 fallback
+    @SentinelResource(value = "demo", fallback = "fallback")
     fun greeting(name: String?): String?
 }

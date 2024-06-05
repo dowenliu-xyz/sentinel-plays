@@ -8,6 +8,6 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
  * Aspect DOES NOT take effect, fallback does not take effect
  */
 public abstract class AAPJavaParentForJava {
-    @SentinelResource(value = "demo", defaultFallback = "defaultFallback") // TODO 提示注解无效，还检查了 defaultFallback
+    @SentinelResource(value = "demo", defaultFallback = "defaultFallback")
     public abstract String greeting(String name);
 }

@@ -9,7 +9,7 @@ import org.example.basic.biz.Greeting.doGreeting
  * Aspect DOES NOT take effect, fallback does not take effect.
  */
 open class AUFPKotlinParentForJava {
-    @SentinelResource(value = "demo", fallback = "fallback") // TODO 提示注解无效，还检查了 fallback
+    @SentinelResource(value = "demo", fallback = "fallback")
     fun greeting(name: String?): String {
         return doGreeting(name)
     }

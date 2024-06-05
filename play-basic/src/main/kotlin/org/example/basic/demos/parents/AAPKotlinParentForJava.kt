@@ -8,6 +8,6 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource
  * Aspect DOES NOT take effect, fallback does not take effect
  */
 abstract class AAPKotlinParentForJava {
-    @SentinelResource(value = "demo", fallback = "fallback") // TODO 提示注解无效，还检查了 fallback
+    @SentinelResource(value = "demo", fallback = "fallback")
     abstract fun greeting(name: String?): String
 }
