@@ -21,7 +21,6 @@ public class KotlinParentAllSOJavaDemo extends KotlinParentAllSOForJava {
         return doGreeting(name);
     }
 
-    // TODO 应该在 override 方法上提示 shadow
     @NotNull
     @Override
     protected String defaultFallback() {

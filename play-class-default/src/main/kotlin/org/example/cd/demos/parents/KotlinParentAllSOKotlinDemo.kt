@@ -18,7 +18,6 @@ class KotlinParentAllSOKotlinDemo : KotlinParentAllSOForKotlin() {
         return Greeting.doGreeting(name)
     }
 
-    // TODO 应该在 override 方法上提示 shadow
     override fun defaultFallback(): String {
         return Greeting.doDefaultFallback()
     }

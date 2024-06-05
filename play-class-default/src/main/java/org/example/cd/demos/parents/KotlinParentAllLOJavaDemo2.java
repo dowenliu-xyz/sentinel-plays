@@ -19,7 +19,6 @@ public class KotlinParentAllLOJavaDemo2 extends KotlinParentAllLOForJava {
         return doGreeting(name);
     }
 
-    // TODO 没有提示 shadow ，方法设置 defaultFallback 后提示
     @NotNull
     @Override
     protected String defaultFallback(Throwable e) {

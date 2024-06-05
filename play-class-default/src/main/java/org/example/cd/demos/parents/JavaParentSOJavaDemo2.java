@@ -23,7 +23,6 @@ public class JavaParentSOJavaDemo2 extends JavaParentSOForJava {
         return doDefaultFallback();
     }
 
-    // TODO 没有提示 shadow，设置方法 defaultFallback 后有提示
     private String defaultFallback(Throwable e) {
         return doDefaultFallback(e);
     }

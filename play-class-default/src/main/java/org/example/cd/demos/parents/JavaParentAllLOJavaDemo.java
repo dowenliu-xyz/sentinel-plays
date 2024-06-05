@@ -20,7 +20,6 @@ public class JavaParentAllLOJavaDemo extends JavaParentAllLOForJava {
         return doGreeting(name);
     }
 
-    // TODO 没有提示 shadow ，方法设置 defaultFallback 后提示
     @Override
     protected String defaultFallback(Throwable e) {
         return doDefaultFallback(e);

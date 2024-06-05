@@ -18,7 +18,6 @@ class KotlinParentAllLOKotlinDemo : KotlinParentAllLOForKotlin() {
         return Greeting.doGreeting(name)
     }
 
-    // TODO 没有提示 shadow ，方法设置 defaultFallback 后提示
     override fun defaultFallback(e: Throwable?): String {
         return Greeting.doDefaultFallback(e)
     }

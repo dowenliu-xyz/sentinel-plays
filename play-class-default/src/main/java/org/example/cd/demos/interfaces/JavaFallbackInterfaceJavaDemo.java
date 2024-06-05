@@ -11,7 +11,7 @@ import static org.example.cd.biz.Greeting.doGreeting;
  * Aspect takes effect, but the defaultFallback method can not be found.
  */
 @Component
-@SentinelResource(defaultFallback = "defaultFallback") // TODO 没有提示找不到 defaultFallback 方法
+@SentinelResource(defaultFallback = "defaultFallback")
 public class JavaFallbackInterfaceJavaDemo implements JavaFallbackInterfaceForJava {
     @SentinelResource(value = "demo")
     public String greeting(String name) {

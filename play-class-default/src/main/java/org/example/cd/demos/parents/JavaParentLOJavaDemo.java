@@ -24,7 +24,6 @@ public class JavaParentLOJavaDemo extends JavaParentLOForJava {
         return doDefaultFallback();
     }
 
-    // TODO 没有提示 shadow，设置方法 defaultFallback 后有提示
     @Override
     protected String defaultFallback(Throwable e) {
         return doDefaultFallback(e);

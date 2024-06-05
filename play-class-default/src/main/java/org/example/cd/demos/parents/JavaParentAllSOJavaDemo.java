@@ -20,7 +20,6 @@ public class JavaParentAllSOJavaDemo extends JavaParentAllSOForJava {
         return doGreeting(name);
     }
 
-    // TODO 应该在 override 方法上提示 shadow
     @Override
     protected String defaultFallback() {
         return doDefaultFallback();

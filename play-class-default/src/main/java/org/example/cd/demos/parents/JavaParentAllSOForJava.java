@@ -10,7 +10,6 @@ public class JavaParentAllSOForJava {
         return "";
     }
 
-    // TODO shadow 目标识别错误，应该是子类重写方法
     private String defaultFallback(Throwable e) {
         return doDefaultFallback(e);
     }

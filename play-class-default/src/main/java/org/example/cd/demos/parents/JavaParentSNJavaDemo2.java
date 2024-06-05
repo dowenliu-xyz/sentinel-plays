@@ -18,7 +18,6 @@ public class JavaParentSNJavaDemo2 extends JavaParentSNForJava {
         return doGreeting(name);
     }
 
-    // TODO 没有提示 shadow，方法设置 defaultFallback 后提示
     private String defaultFallback(Throwable e) {
         return doDefaultFallback(e);
     }

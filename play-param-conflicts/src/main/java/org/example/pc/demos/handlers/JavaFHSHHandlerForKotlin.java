@@ -9,7 +9,6 @@ import static org.example.pc.biz.Biz.doFallback;
  * case: first fallback from handler class; second fallback from handler class
  * <br/>
  * Conflicts.
- * // TODO 没有提示冲突
  */
 public class JavaFHSHHandlerForKotlin {
     private static void blockHandler(String str, BlockException e) {

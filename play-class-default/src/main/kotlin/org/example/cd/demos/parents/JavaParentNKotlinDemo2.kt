@@ -20,7 +20,6 @@ class JavaParentNKotlinDemo2 : JavaParentNForKotlin() {
         return Greeting.doDefaultFallback()
     }
 
-    // TODO 没有提示 shadow，设置方法 defaultFallback 后有提示
     private fun defaultFallback(e: Throwable): String {
         return Greeting.doDefaultFallback(e)
     }

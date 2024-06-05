@@ -25,7 +25,6 @@ public class KotlinParentLOJavaDemo extends KotlinParentLOForJava {
         return doDefaultFallback();
     }
 
-    // TODO 没有提示 shadow，设置方法 defaultFallback 后有提示
     @NotNull
     @Override
     protected String defaultFallback(Throwable e) {
