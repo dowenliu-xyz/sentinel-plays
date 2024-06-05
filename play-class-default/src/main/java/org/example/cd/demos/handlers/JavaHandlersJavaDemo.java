@@ -9,7 +9,7 @@ import static org.example.cd.biz.Greeting.doGreeting;
 @Component
 @SentinelResource(defaultFallback = "defaultFallback", fallbackClass = JavaHandlersForJava.class)
 public class JavaHandlersJavaDemo {
-    @SentinelResource(value = "demo") // TODO 设置到方法上，修改一个方法的 visibility 后，另一个方法不提示修改 visibility 了
+    @SentinelResource(value = "demo")
     public String greeting(String name) {
         return doGreeting(name);
     }

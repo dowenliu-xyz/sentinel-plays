@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component
 @Component
 @Primary
 class JavaParentAllSOKotlinDemo : JavaParentAllSOForKotlin() {
-    @SentinelResource(value = "demo") // TODO 设置 defaultFallback 后没有提示修改 visibility
+    @SentinelResource(value = "demo") // TODO 未设置到方法时，visibility 问题没提示
     fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }
