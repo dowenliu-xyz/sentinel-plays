@@ -9,7 +9,7 @@ import org.example.bh.biz.Greeting.doGreeting
  * Aspect takes effect, fallback takes effect.
  */
 open class AUPKotlinParentForJava {
-    @SentinelResource(value = "demo", blockHandler = "blockHandler") // TODO 自动完成有问题，好像是 IDE bug
+    @SentinelResource(value = "demo", blockHandler = "blockHandler")
     open fun greeting(name: String?): String {
         return doGreeting(name)
     }

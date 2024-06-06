@@ -10,7 +10,7 @@ import static org.example.bh.biz.Greeting.doGreeting;
  * Aspect takes effect, fallback takes effect.
  */
 public class AUPJavaParentForJava {
-    @SentinelResource(value = "demo", blockHandler = "blockHandler") // TODO 自动完成有问题，好像是 IDE bug
+    @SentinelResource(value = "demo", blockHandler = "blockHandler")
     public String greeting(String name) {
         return doGreeting(name);
     }
