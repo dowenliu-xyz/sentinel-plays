@@ -1,34 +1,27 @@
-package org.example.hc.demos;
+package org.example.hc.demos
 
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import org.springframework.stereotype.Component;
+import com.alibaba.csp.sentinel.annotation.SentinelResource
+import org.example.hc.biz.Greeting
+import org.springframework.stereotype.Component
 
-import static org.example.hc.biz.Greeting.doGreeting;
-
-@SuppressWarnings("unused")
+@Suppress("unused")
 @Component
-public class MethodAnnoTakeEffectKotlinDemo {
-    @SentinelResource(
-            blockHandlerClass = {BlockHandlerClass.class},
-            fallbackClass = {FallbackClass.class}
-    )
-    public String greeting1(String name) {
-        return doGreeting(name);
+class MethodAnnoTakeEffectKotlinDemo {
+    @SentinelResource(blockHandlerClass = [BlockHandlerClass::class], fallbackClass = [FallbackClass::class])
+    fun greeting1(name: String?): String {
+        return Greeting.doGreeting(name)
+    }
+
+    @SentinelResource(blockHandlerClass = [BlockHandlerClass::class], fallbackClass = [FallbackClass::class])
+    fun greeting2(name: String?): String {
+        return Greeting.doGreeting(name)
     }
 
     @SentinelResource(
-            blockHandlerClass = BlockHandlerClass.class,
-            fallbackClass = FallbackClass.class
+        blockHandlerClass = [BlockHandlerClass::class, BlockHandlerClass2::class],
+        fallbackClass = [FallbackClass::class, FallbackClass2::class]
     )
-    public String greeting2(String name) {
-        return doGreeting(name);
-    }
-
-    @SentinelResource(
-            blockHandlerClass = {BlockHandlerClass.class, BlockHandlerClass2.class},
-            fallbackClass = {FallbackClass.class, FallbackClass2.class}
-    )
-    public String greeting3(String name) {
-        return doGreeting(name);
+    fun greeting3(name: String?): String {
+        return Greeting.doGreeting(name)
     }
 }
