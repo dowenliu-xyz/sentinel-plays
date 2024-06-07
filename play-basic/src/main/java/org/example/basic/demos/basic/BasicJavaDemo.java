@@ -11,6 +11,7 @@ import static org.example.basic.biz.Greeting.doGreeting;
  * <br/>
  * aspect takes effect, fallback takes effect.
  */
+// Comment out the next line ↓, makes this class no more a Bean.
 @Component
 @SuppressWarnings({"unused"})
 public class BasicJavaDemo {

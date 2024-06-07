@@ -13,7 +13,6 @@ import static org.example.cd.biz.Greeting.doGreeting;
  * Aspect takes effect, defaultFallback takes effect.
  */
 @Component
-@Primary
 public class JavaParentAllAOJavaDemo2 extends JavaParentAllAOForJava {
     @SentinelResource(value = "demo")
     public String greeting(String name) {

@@ -11,6 +11,7 @@ import static org.example.basic.biz.Greeting.doGreeting;
  */
 public class AUFPJavaParentForJava {
     @SentinelResource(value = "demo", fallback = "fallback")
+    // NOTES the `final` keyword in the next line!
     public final String greeting(String name) {
         return doGreeting(name);
     }

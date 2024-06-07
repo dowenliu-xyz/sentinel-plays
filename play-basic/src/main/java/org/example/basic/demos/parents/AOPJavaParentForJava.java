@@ -10,6 +10,7 @@ import org.example.basic.biz.Greeting;
  */
 public class AOPJavaParentForJava {
     @SentinelResource(value = "demo", fallback = "fallback")
+    // This method is overridden in subclass which is a Bean.
     public String greeting(String name) {
         return Greeting.doGreeting(name);
     }

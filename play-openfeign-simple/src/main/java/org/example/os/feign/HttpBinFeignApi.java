@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(
         name = "httpBin",
         // url = "https://httpbin.org"
-        url = "http://localhost:8011"
+        url = "http://localhost:8011" // A `httpbin` app is running at this endpoint.
 )
 public interface HttpBinFeignApi {
     @GetMapping("/status/{code}")

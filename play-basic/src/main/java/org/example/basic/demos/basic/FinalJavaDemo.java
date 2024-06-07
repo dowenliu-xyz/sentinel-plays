@@ -15,6 +15,7 @@ import static org.example.basic.biz.Greeting.doGreeting;
 // @Component // Enable this line will cause the application bootstrap failed.
 @SuppressWarnings({"unused"})
 @Slf4j
+// NOTES the `final` keyword in the next line!
 public final class FinalJavaDemo {
     @SentinelResource(value = "demo", fallback = "fallback")
     public String greeting(String name) {
