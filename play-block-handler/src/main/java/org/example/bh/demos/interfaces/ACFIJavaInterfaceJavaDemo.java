@@ -12,6 +12,8 @@ import static org.example.bh.biz.Greeting.doGreeting;
  */
 @Component
 public class ACFIJavaInterfaceJavaDemo implements ACFIJavaInterfaceForJava {
+    // The method `blockHandler` exists in interface `ACFIJavaInterfaceForJava`.
+    // But it is a DEFAULT method! A default method CAN NOT be used as a handler method.
     @SentinelResource(value = "demo", blockHandler = "blockHandler")
     @Override
     public String greeting(String name) {
