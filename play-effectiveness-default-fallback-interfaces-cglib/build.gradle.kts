@@ -32,10 +32,10 @@ fun mkdirs(basePkg: String) {
 
 fun generateCases(): List<Case> {
     val cases = mutableListOf<Case>()
-    for (hasClassAnnoOnSuper in arrayOf(true, false)) {
+    for (classAnnoOnSuper in ClassAnno.values()) {
         for (originMethodInSuper in OriginMethodInSuper.values()) {
             for (handlerInSuper in HandlerInSuper.values()) {
-                for (hasClassAnnoOnClass in arrayOf(true, false)) {
+                for (classAnnoOnClass in ClassAnno.values()) {
                     for (originMethodInClass in OriginMethodInClass.values()) {
                         if (!originMethodInSuper.exist && !originMethodInClass.exist) {
                             continue
@@ -49,11 +49,11 @@ fun generateCases(): List<Case> {
                             }
                             cases.add(
                                 Case(
-                                    sn = "%03d".format(cases.size + 1),
-                                    hasClassAnnoOnSuper = hasClassAnnoOnSuper,
+                                    sn = "%04d".format(cases.size + 1),
+                                    classAnnoOnSuper = classAnnoOnSuper,
                                     originMethodInSuper = originMethodInSuper,
                                     handlerInSuper = handlerInSuper,
-                                    hasClassAnnoOnClass = hasClassAnnoOnClass,
+                                    classAnnoOnClass = classAnnoOnClass,
                                     originMethodInClass = originMethodInClass,
                                     hasHandlerInClass = hasHandlerInClass,
                                 )
@@ -91,7 +91,7 @@ fun generateJavaInterface(pkgPath: String, basePkg: String, case: Case, classLan
                         |
         """.trimMargin()
     )
-    if (case.hasClassAnnoOnSuper || case.originMethodInSuper.withAnno) {
+    if (case.classAnnoOnSuper.exist || case.originMethodInSuper.withAnno) {
         file.appendText(
             """
                         |
@@ -99,8 +99,8 @@ fun generateJavaInterface(pkgPath: String, basePkg: String, case: Case, classLan
             """.trimMargin()
         )
     }
-    val handlerInSuper = case.handlerInSuper.exist && (case.hasClassAnnoOnClass ||
-            case.hasClassAnnoOnSuper ||
+    val handlerInSuper = case.handlerInSuper.exist && (case.classAnnoOnSuper.hasAttr ||
+            case.classAnnoOnClass.hasAttr ||
             case.originMethodInClass.hasAttr ||
             case.originMethodInSuper.hasAttr)
     if (handlerInSuper) {
@@ -150,11 +150,12 @@ fun generateJavaInterface(pkgPath: String, basePkg: String, case: Case, classLan
                         |@SuppressWarnings("unused")
         """.trimMargin()
     )
-    if (case.hasClassAnnoOnSuper) {
+    if (case.classAnnoOnSuper.exist) {
+        val optionalAttr = if (case.classAnnoOnSuper.hasAttr) ", defaultFallback = \"superClassHandler\"" else ""
         file.appendText(
             """
                         |
-                        |@SentinelResource(value = "demo", defaultFallback = "superClassHandler")
+                        |@SentinelResource(value = "demo"${optionalAttr})
             """.trimMargin()
         )
     }
@@ -198,7 +199,7 @@ fun generateJavaInterface(pkgPath: String, basePkg: String, case: Case, classLan
         }
     }
     if (handlerInSuper) {
-        if (case.hasClassAnnoOnSuper) {
+        if (case.classAnnoOnSuper.hasAttr) {
             if (case.handlerInSuper.requireOverride) {
                 file.appendText(
                     """
@@ -260,7 +261,7 @@ fun generateJavaInterface(pkgPath: String, basePkg: String, case: Case, classLan
                 )
             }
         }
-        if (case.hasClassAnnoOnClass) {
+        if (case.classAnnoOnClass.hasAttr) {
             if (case.handlerInSuper.requireOverride) {
                 file.appendText(
                     """
@@ -342,7 +343,7 @@ fun generateJavaDemo(pkgPath: String, basePkg: String, case: Case, interfaceLang
                         |
         """.trimMargin()
     )
-    if (case.hasClassAnnoOnClass || case.originMethodInClass.withAnno) {
+    if (case.classAnnoOnClass.exist || case.originMethodInClass.withAnno) {
         file.appendText(
             """
                         |
@@ -350,8 +351,8 @@ fun generateJavaDemo(pkgPath: String, basePkg: String, case: Case, interfaceLang
             """.trimMargin()
         )
     }
-    val hasHandlerInClass = case.hasHandlerInClass && (case.hasClassAnnoOnClass ||
-            case.hasClassAnnoOnSuper ||
+    val hasHandlerInClass = case.hasHandlerInClass && (case.classAnnoOnClass.hasAttr ||
+            case.classAnnoOnSuper.hasAttr ||
             case.originMethodInClass.hasAttr ||
             case.originMethodInSuper.hasAttr)
     if (hasHandlerInClass) {
@@ -406,11 +407,12 @@ fun generateJavaDemo(pkgPath: String, basePkg: String, case: Case, interfaceLang
                         |@SuppressWarnings("unused")
         """.trimMargin()
     )
-    if (case.hasClassAnnoOnClass) {
+    if (case.classAnnoOnClass.exist) {
+        val optionalAttr = if (case.classAnnoOnClass.hasAttr) ", defaultFallback = \"classHandler\"" else ""
         file.appendText(
             """
                         |
-                        |@SentinelResource(value = "demo", defaultFallback = "classHandler")
+                        |@SentinelResource(value = "demo"${optionalAttr})
             """.trimMargin()
         )
     }
@@ -452,7 +454,7 @@ fun generateJavaDemo(pkgPath: String, basePkg: String, case: Case, interfaceLang
         )
     }
     if (hasHandlerInClass) {
-        if (case.hasClassAnnoOnSuper) {
+        if (case.classAnnoOnSuper.hasAttr) {
             if (case.handlerInSuper.exist) {
                 file.appendText(
                     """
@@ -468,6 +470,19 @@ fun generateJavaDemo(pkgPath: String, basePkg: String, case: Case, interfaceLang
                         |    public String superClassHandler(@Nullable Throwable e) {
                         |        return EffAnno.SuperClassAnno.name() + ":" + HandlerLocation.Class.name() + ":" + doDefaultFallback(e);
                         |    }
+                        |
+                """.trimMargin()
+            )
+            if (case.handlerInSuper.exist) {
+                file.appendText(
+                    """
+                        |
+                        |    @Override
+                    """.trimMargin()
+                )
+            }
+            file.appendText(
+                """
                         |
                         |    @NotNull
                         |    public String superClassHandler() {
@@ -515,7 +530,7 @@ fun generateJavaDemo(pkgPath: String, basePkg: String, case: Case, interfaceLang
                 """.trimMargin()
             )
         }
-        if (case.hasClassAnnoOnClass) {
+        if (case.classAnnoOnClass.hasAttr) {
             if (case.handlerInSuper.exist) {
                 file.appendText(
                     """
@@ -611,7 +626,7 @@ fun generateKotlinInterface(pkgPath: String, basePkg: String, case: Case, classL
                         |
         """.trimMargin()
     )
-    if (case.hasClassAnnoOnSuper || case.originMethodInSuper.withAnno) {
+    if (case.classAnnoOnSuper.exist || case.originMethodInSuper.withAnno) {
         file.appendText(
             """
                         |
@@ -619,8 +634,8 @@ fun generateKotlinInterface(pkgPath: String, basePkg: String, case: Case, classL
             """.trimMargin()
         )
     }
-    val handlerInSuper = case.handlerInSuper.exist && (case.hasClassAnnoOnClass ||
-            case.hasClassAnnoOnSuper ||
+    val handlerInSuper = case.handlerInSuper.exist && (case.classAnnoOnClass.hasAttr ||
+            case.classAnnoOnSuper.hasAttr ||
             case.originMethodInClass.hasAttr ||
             case.originMethodInSuper.hasAttr)
     if (handlerInSuper) {
@@ -661,11 +676,12 @@ fun generateKotlinInterface(pkgPath: String, basePkg: String, case: Case, classL
                         | */
         """.trimMargin()
     )
-    if (case.hasClassAnnoOnSuper) {
+    if (case.classAnnoOnSuper.exist) {
+        val optionalAttr = if (case.classAnnoOnSuper.hasAttr) ", defaultFallback = \"superClassHandler\"" else ""
         file.appendText(
             """
                         |
-                        |@SentinelResource(value = "demo", defaultFallback = "superClassHandler")
+                        |@SentinelResource(value = "demo"${optionalAttr})
             """.trimMargin()
         )
     }
@@ -715,7 +731,7 @@ fun generateKotlinInterface(pkgPath: String, basePkg: String, case: Case, classL
         }
     }
     if (handlerInSuper) {
-        if (case.hasClassAnnoOnSuper) {
+        if (case.classAnnoOnSuper.hasAttr) {
             if (case.handlerInSuper.requireOverride) {
                 file.appendText(
                     """
@@ -769,7 +785,7 @@ fun generateKotlinInterface(pkgPath: String, basePkg: String, case: Case, classL
                 )
             }
         }
-        if (case.hasClassAnnoOnClass) {
+        if (case.classAnnoOnClass.hasAttr) {
             if (case.handlerInSuper.requireOverride) {
                 file.appendText(
                     """
@@ -845,7 +861,7 @@ fun generateKotlinDemo(pkgPath: String, basePkg: String, case: Case, interfaceLa
                         |
         """.trimMargin()
     )
-    if (case.hasClassAnnoOnClass || case.originMethodInClass.withAnno) {
+    if (case.classAnnoOnClass.exist || case.originMethodInClass.withAnno) {
         file.appendText(
             """
                         |
@@ -853,8 +869,8 @@ fun generateKotlinDemo(pkgPath: String, basePkg: String, case: Case, interfaceLa
             """.trimMargin()
         )
     }
-    val hasHandlerInClass = case.hasHandlerInClass && (case.hasClassAnnoOnClass ||
-            case.hasClassAnnoOnSuper ||
+    val hasHandlerInClass = case.hasHandlerInClass && (case.classAnnoOnClass.hasAttr ||
+            case.classAnnoOnSuper.hasAttr ||
             case.originMethodInClass.hasAttr ||
             case.originMethodInSuper.hasAttr)
     if (hasHandlerInClass) {
@@ -891,11 +907,12 @@ fun generateKotlinDemo(pkgPath: String, basePkg: String, case: Case, interfaceLa
                         | */
         """.trimMargin()
     )
-    if (case.hasClassAnnoOnClass) {
+    if (case.classAnnoOnClass.exist) {
+        val optionalAttr = if (case.classAnnoOnClass.hasAttr) ", defaultFallback = \"classHandler\"" else ""
         file.appendText(
             """
                         |
-                        |@SentinelResource(value = "demo", defaultFallback = "classHandler")
+                        |@SentinelResource(value = "demo"${optionalAttr})
             """.trimMargin()
         )
     }
@@ -934,7 +951,7 @@ fun generateKotlinDemo(pkgPath: String, basePkg: String, case: Case, interfaceLa
     }
     if (case.hasHandlerInClass) {
         val optionalOverrideKeyword = if (case.handlerInSuper.exist) "override " else ""
-        if (case.hasClassAnnoOnSuper) {
+        if (case.classAnnoOnSuper.hasAttr) {
             file.appendText(
                 """
                         |
@@ -964,7 +981,7 @@ fun generateKotlinDemo(pkgPath: String, basePkg: String, case: Case, interfaceLa
                 """.trimMargin()
             )
         }
-        if (case.hasClassAnnoOnClass) {
+        if (case.classAnnoOnClass.hasAttr) {
             file.appendText(
                 """
                         |
@@ -1045,10 +1062,10 @@ fun generateCaseRunner(basePkg: String, case: Case) {
                     log.info("case result: {},{},{}",
                             String.join(",",
                                     "${case.sn}",
-                                    "${if (case.hasClassAnnoOnSuper) "Yes" else "No"}",
+                                    "${case.classAnnoOnSuper.name}",
                                     "${case.originMethodInSuper.name}",
                                     "${case.handlerInSuper.name}",
-                                    "${if (case.hasClassAnnoOnClass) "Yes" else "No"}",
+                                    "${case.classAnnoOnClass.name}",
                                     "${case.originMethodInClass.name}",
                                     "${if (case.hasHandlerInClass) "Yes" else "No"}"
                                     ),
@@ -1063,13 +1080,19 @@ fun generateCaseRunner(basePkg: String, case: Case) {
 
 data class Case(
     val sn: String,
-    val hasClassAnnoOnSuper: Boolean,
+    val classAnnoOnSuper: ClassAnno,
     val originMethodInSuper: OriginMethodInSuper,
     val handlerInSuper: HandlerInSuper,
-    val hasClassAnnoOnClass: Boolean,
+    val classAnnoOnClass: ClassAnno,
     val originMethodInClass: OriginMethodInClass,
     val hasHandlerInClass: Boolean,
 )
+
+enum class ClassAnno(val exist: Boolean, val hasAttr: Boolean) {
+    WithAttr(true, true),
+    WithoutAttr(true, false),
+    None(false, false),
+}
 
 enum class OriginMethodInSuper(
     val exist: Boolean,
