@@ -66,6 +66,9 @@ public final class Run {
                 String[] split = result.split(":");
                 effAnno = EffAnno.valueOf(split[0]);
                 handlerLocation = HandlerLocation.valueOf(split[1]);
+                if (!"fallback without error".equals(split[2])) {
+                    throw new AssertionError("unexpected fallback");
+                }
             } catch (InvocationTargetException ite) {
                 Throwable cause = ite.getCause();
                 if (cause instanceof UndeclaredThrowableException) {
