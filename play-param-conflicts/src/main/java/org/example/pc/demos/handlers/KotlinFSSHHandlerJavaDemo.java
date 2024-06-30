@@ -10,7 +10,7 @@ import static org.example.pc.biz.Biz.*;
 
 @Component
 public class KotlinFSSHHandlerJavaDemo implements Demo {
-    @SentinelResource(fallback = "fallback")
+    @SentinelResource(blockHandler = "blockHandler", fallback = "fallback")
     @Override
     public void consumeString(@Nullable String str) {
         doConsumeString(str);
