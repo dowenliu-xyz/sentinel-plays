@@ -16,12 +16,13 @@ class FHSSJavaHandlerKotlinDemo : Demo {
     }
 
     @SentinelResource(fallback = "fallback")
-    override fun second(): Int {
+    // 这里会编译成 Integer 类型，是因为 override 接口的方法返回类型是 Integer 类型。
+    // 这里写成 Int 类型语法上能通过，是因为 Int 可以赋值给 Int? 类型。Override 的语法允许。
+    override fun second(): Int { // TODO 插件应该结合 override 来推断类型
         return Biz.doSecond()
     }
 
-    // TODO 这里好像应该给 Sentinel 项目提 bug 。这里运行时返回类型为 int ，而方法 second() 返回值类型为 Integer 。编译时确定不了这个方法返回是基本类型还是包装类型。
-    // 可以提一个 PR ，处理 return type assignability 判断问题。
+    // 没有其他约束，这里如果写成 Int 类型一定会编译成 int 。
     private fun fallback(): Int? {
         return Biz.doSecondFallback()
     }
