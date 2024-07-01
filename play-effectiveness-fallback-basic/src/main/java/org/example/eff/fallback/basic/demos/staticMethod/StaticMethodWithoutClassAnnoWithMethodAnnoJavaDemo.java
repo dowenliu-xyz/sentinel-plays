@@ -10,7 +10,7 @@ import static org.example.eff.fallback.basic.biz.Greeting.doGreeting;
 
 @Component
 public class StaticMethodWithoutClassAnnoWithMethodAnnoJavaDemo {
-    @SentinelResource(value = "demo", fallback = "methodFallback") // TODO static 方法上注解应该提示不生效
+    @SentinelResource(value = "demo", fallback = "methodFallback")
     @NotNull
     public static String greeting(@Nullable String name) {
         return doGreeting(name);

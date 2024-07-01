@@ -19,7 +19,7 @@ public class PrivateMethodWithClassAnnoWithMethodAnnoJavaDemo {
         this.self = self;
     }
 
-    @SentinelResource(value = "demo", fallback = "methodFallback") // TODO private 方法的注解应该提示无效
+    @SentinelResource(value = "demo", fallback = "methodFallback")
     @NotNull
     private String greeting(@Nullable String name) {
         return doGreeting(name);

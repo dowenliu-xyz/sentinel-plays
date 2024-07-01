@@ -15,7 +15,7 @@ class PrivateMethodWithClassAnnoWithMethodAnnoKotlinDemo {
         this.self = self
     }
 
-    @SentinelResource(value = "demo", fallback = "methodFallback") // TODO private 方法的注解应该提示无效
+    @SentinelResource(value = "demo", fallback = "methodFallback")
     private fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

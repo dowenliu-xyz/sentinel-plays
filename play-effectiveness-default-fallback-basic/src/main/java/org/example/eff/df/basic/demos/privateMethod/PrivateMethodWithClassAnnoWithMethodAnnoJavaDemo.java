@@ -20,7 +20,7 @@ public class PrivateMethodWithClassAnnoWithMethodAnnoJavaDemo {
         this.self = self;
     }
 
-    @SentinelResource(value = "demo", defaultFallback = "methodDefaultFallback") // TODO private 方法的注解应该提示无效
+    @SentinelResource(value = "demo", defaultFallback = "methodDefaultFallback")
     @NotNull
     private String greeting(@Nullable String name) {
         return doGreeting(name);

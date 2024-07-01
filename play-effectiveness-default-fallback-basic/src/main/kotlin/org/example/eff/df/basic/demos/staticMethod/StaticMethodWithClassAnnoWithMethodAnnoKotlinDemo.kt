@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 @SentinelResource(value = "demo", defaultFallback = "classDefaultFallback")
 class StaticMethodWithClassAnnoWithMethodAnnoKotlinDemo {
     companion object {
-        @SentinelResource(value = "demo", defaultFallback = "methodDefaultFallback") // TODO static 方法上注解应该提示不生效 （现在提示的是 not bean ， 应该也是 OK 的）
+        @SentinelResource(value = "demo", defaultFallback = "methodDefaultFallback")
         @JvmStatic
         fun greeting(name: String?): String {
             return Greeting.doGreeting(name)

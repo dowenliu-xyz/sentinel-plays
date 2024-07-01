@@ -16,7 +16,7 @@ class PrivateMethodWithClassAnnoWithMethodAnnoNoAttrKotlinDemo {
         this.self = self
     }
 
-    @SentinelResource(value = "demo") // TODO private 方法的注解应该提示无效
+    @SentinelResource(value = "demo")
     private fun greeting(name: String?): String {
         return Greeting.doGreeting(name)
     }

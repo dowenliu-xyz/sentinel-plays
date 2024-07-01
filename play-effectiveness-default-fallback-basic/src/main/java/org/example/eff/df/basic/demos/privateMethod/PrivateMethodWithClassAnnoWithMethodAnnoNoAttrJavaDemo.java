@@ -20,7 +20,7 @@ public class PrivateMethodWithClassAnnoWithMethodAnnoNoAttrJavaDemo {
         this.self = self;
     }
 
-    @SentinelResource(value = "demo") // TODO private 方法的注解应该提示无效
+    @SentinelResource(value = "demo")
     @NotNull
     private String greeting(@Nullable String name) {
         return doGreeting(name);

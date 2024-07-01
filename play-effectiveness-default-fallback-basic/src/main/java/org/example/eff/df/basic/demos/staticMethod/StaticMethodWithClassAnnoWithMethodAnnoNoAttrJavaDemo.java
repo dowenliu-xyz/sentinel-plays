@@ -12,7 +12,7 @@ import static org.example.eff.df.basic.biz.Greeting.doGreeting;
 @Component
 @SentinelResource(value = "demo", defaultFallback = "classDefaultFallback")
 public class StaticMethodWithClassAnnoWithMethodAnnoNoAttrJavaDemo {
-    @SentinelResource(value = "demo") // TODO static 方法上注解应该提示不生效
+    @SentinelResource(value = "demo")
     @NotNull
     public static String greeting(@Nullable String name) {
         return doGreeting(name);

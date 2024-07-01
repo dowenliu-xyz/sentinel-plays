@@ -10,7 +10,7 @@ import static org.example.eff.block.basic.biz.Greeting.doBlockHandler;
 import static org.example.eff.block.basic.biz.Greeting.doGreeting;
 
 @Component
-@SentinelResource(value = "demo", blockHandler = "classBlockHandler") // TODO 类注解时，没有 defaultFallback 属性时，应该直接提示无效。
+@SentinelResource(value = "demo", blockHandler = "classBlockHandler")
 public class SingleWithClassAnnoWithMethodAnnoJavaDemo {
     @SentinelResource(value = "demo", blockHandler = "methodBlockHandler")
     @NotNull

@@ -19,7 +19,7 @@ public class PrivateMethodWithoutClassAnnoWithMethodAnnoJavaDemo {
         this.self = self;
     }
 
-    @SentinelResource(value = "demo", blockHandler = "methodBlockHandler") // TODO private 方法的注解应该提示无效
+    @SentinelResource(value = "demo", blockHandler = "methodBlockHandler")
     @NotNull
     private String greeting(@Nullable String name) {
         return doGreeting(name);

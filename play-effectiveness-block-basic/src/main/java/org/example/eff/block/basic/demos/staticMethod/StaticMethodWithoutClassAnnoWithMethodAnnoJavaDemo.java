@@ -11,7 +11,7 @@ import static org.example.eff.block.basic.biz.Greeting.doGreeting;
 
 @Component
 public class StaticMethodWithoutClassAnnoWithMethodAnnoJavaDemo {
-    @SentinelResource(value = "demo", blockHandler = "methodBlockHandler") // TODO static 方法上注解应该提示不生效
+    @SentinelResource(value = "demo", blockHandler = "methodBlockHandler")
     @NotNull
     public static String greeting(@Nullable String name) {
         return doGreeting(name);

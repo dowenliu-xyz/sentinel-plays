@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import static org.example.eff.df.basic.biz.Greeting.*;
 
 @Component
-@SentinelResource(value = "demo", defaultFallback = "classDefaultFallback") // TODO 仅类注解，AOP 不生效，不应该报错
+@SentinelResource(value = "demo", defaultFallback = "classDefaultFallback")
 public final class FinalClassWithClassAnnoWithoutMethodAnnoJavaDemo {
     @NotNull
     public String greeting(@Nullable String name) {

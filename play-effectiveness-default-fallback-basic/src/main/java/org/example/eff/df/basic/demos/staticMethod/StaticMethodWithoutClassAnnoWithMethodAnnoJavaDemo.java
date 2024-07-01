@@ -11,7 +11,7 @@ import static org.example.eff.df.basic.biz.Greeting.doGreeting;
 
 @Component
 public class StaticMethodWithoutClassAnnoWithMethodAnnoJavaDemo {
-    @SentinelResource(value = "demo", defaultFallback = "methodDefaultFallback") // TODO static 方法上注解应该提示不生效
+    @SentinelResource(value = "demo", defaultFallback = "methodDefaultFallback")
     @NotNull
     public static String greeting(@Nullable String name) {
         return doGreeting(name);
