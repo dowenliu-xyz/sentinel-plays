@@ -17,7 +17,7 @@ allprojects {
 
     extra["springCloudVersion"] = "2023.0.1"
     extra["springCloudAlibabaVersion"] = "2023.0.1.0"
-    extra["sentinel.version"] = "1.8.7"
+    extra["sentinel.version"] = "1.8.6"
 }
 
 subprojects {
