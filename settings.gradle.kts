@@ -1,4 +1,5 @@
 rootProject.name = "sentinel-plays"
+include("bug1442")
 include("play-basic")
 include("play-block-handler")
 include("play-class-default")
