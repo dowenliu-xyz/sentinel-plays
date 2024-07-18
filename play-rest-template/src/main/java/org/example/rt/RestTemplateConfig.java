@@ -46,7 +46,6 @@ public class RestTemplateConfig {
         FlowRuleManager.loadRules(rules);
     }
 
-    // TODO resolve and auto-completion
     // TODO `blockHandler` 和 `blockHandlerClass` 必须同时使用，或者都不使用。只使用其中任一就报错
     // TODO `fallback` 和 `fallbackClass` 必须同时使用，或者都不使用。只使用其中任一就报错
     // TODO `urlCleaner` 和 `urlCleanerClass` 必须同时使用，或者都不使用。只使用其中任一就报错
