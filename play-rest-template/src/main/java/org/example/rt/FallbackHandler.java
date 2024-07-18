@@ -10,7 +10,7 @@ import org.springframework.http.client.ClientHttpResponse;
 @SuppressWarnings("unused")
 @Slf4j
 public class FallbackHandler {
-    public static ClientHttpResponse fb(HttpRequest r, byte[] body, ClientHttpRequestExecution execution, BlockException be) {
+    public static ClientHttpResponse fb(HttpRequest req, byte[] body, ClientHttpRequestExecution exec, BlockException be) {
         return new SentinelClientHttpResponse("my fallback handler from FallbackHandler");
     }
 }

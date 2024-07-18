@@ -10,7 +10,7 @@ import org.springframework.http.client.ClientHttpResponse;
 @SuppressWarnings("unused")
 @Slf4j
 public class BlockHandler {
-    public static ClientHttpResponse bh(HttpRequest r, byte[] body, ClientHttpRequestExecution e, BlockException be) {
+    public static ClientHttpResponse bh(HttpRequest req, byte[] body, ClientHttpRequestExecution exec, BlockException be) {
         return new SentinelClientHttpResponse("my block handler from BlockHandler");
     }
 }

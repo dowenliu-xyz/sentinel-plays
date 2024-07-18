@@ -46,15 +46,6 @@ public class RestTemplateConfig {
         FlowRuleManager.loadRules(rules);
     }
 
-    // TODO `blockHandler` 和 `blockHandlerClass` 必须同时使用，或者都不使用。只使用其中任一就报错
-    // TODO `fallback` 和 `fallbackClass` 必须同时使用，或者都不使用。只使用其中任一就报错
-    // TODO `urlCleaner` 和 `urlCleanerClass` 必须同时使用，或者都不使用。只使用其中任一就报错
-    // TODO handler 类必须是 public 的，否则会报 IllegalAccessException 。
-    //      从库(`SentinelProtectInterceptor`)反射调用，handlerClass 和 handler 必须是 public 的
-    // TODO handler 必须是 `public` 的，否则会在启动时报 IllegalArgumentException 。
-    //      原因是 Spring ClassUtils.getStaticMethod 方法使用了 Class#getMethod(String, Class...) 查找方法，
-    //      该方法只查找声明的 `public` 方法，跳过所有非 `public` 方法
-    // TODO 前后空白，无效标识符
     @Bean
     @SentinelRestTemplate(
             blockHandler = "bh", blockHandlerClass = BlockHandler.class,
